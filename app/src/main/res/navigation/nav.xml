@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.medicalapp.ui.mainUi.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        5
+        <action
+            android:id="@+id/action_loginFragment_to_hrFragment"
+            app:destination="@id/hrFragment"
+            app:popUpTo="@id/nav"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_receptionistFragment"
+            app:destination="@id/receptionistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeFragment"
+        android:name="com.example.medicalapp.ui.mainUi.EmployeeFragment"
+        android:label="fragment_employee"
+        tools:layout="@layout/fragment_employee" >
+        <action
+            android:id="@+id/action_employeeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_employeeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.medicalapp.ui.mainUi.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.medicalapp.ui.mainUi.hr.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/hrFragment"
+        android:name="com.example.medicalapp.ui.mainUi.HrFragment"
+        android:label="fragment_hr"
+        tools:layout="@layout/fragment_hr" >
+        <action
+            android:id="@+id/action_hrFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+        <action
+            android:id="@+id/action_hrFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/receptionistFragment"
+        android:name="com.example.medicalapp.ui.mainUi.ReceptionistFragment"
+        android:label="fragment_receptionist"
+        tools:layout="@layout/fragment_receptionist" >
+        <action
+            android:id="@+id/action_receptionistFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/splash"
+        android:name="com.example.medicalapp.ui.mainUi.Splash"
+        android:label="splash_srceen"
+        tools:layout="@layout/splash_srceen" />
+</navigation>

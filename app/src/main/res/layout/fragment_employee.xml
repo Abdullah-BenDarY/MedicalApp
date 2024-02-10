@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mainUi.EmployeeFragment">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        android:layout_width="108dp"
+        android:layout_height="72dp"
+        android:backgroundTint="@color/transparent"
+        app:icon="@drawable/btn_back"
+        app:iconSize="@dimen/_30sdp"
+        app:iconTint="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/txt_Employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/employee"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle=""
+        app:layout_constraintBottom_toBottomOf="@id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+    <EditText
+        android:id="@+id/search_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_box"
+        android:gravity="center"
+        android:hint="@string/search_for_employee"
+        app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sreach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:backgroundTint="@color/transparent"
+        app:icon="@drawable/search_icon"
+        app:iconSize="@dimen/_18sdp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/search_box"
+        app:layout_constraintStart_toStartOf="@+id/search_box"
+        app:layout_constraintTop_toTopOf="@id/search_box" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_box"
+        tools:listitem="@layout/item_tabs" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_employees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler_tabs"
+        tools:listitem="@layout/item_employee_names" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_add"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_margin="@dimen/_20sdp"
+        app:icon="@drawable/baseline_add"
+        app:iconTint="@color/white"
+        app:iconSize="@dimen/_25sdp"
+        app:shapeAppearanceOverlay="@style/CircularShapeOverlay"
+        android:backgroundTint="@color/mintGreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

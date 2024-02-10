@@ -1,0 +1,151 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mainUi.HrFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_guideLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/second_top_guideLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19015048" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/icon"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="@id/left_guideLine"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideLine"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <TextView
+        android:id="@+id/text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintStart_toEndOf="@id/img_user"
+        app:layout_constraintTop_toTopOf="@id/img_user"
+        android:text="@string/user_name"
+         />
+
+    <TextView
+        android:id="@+id/text_userdetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:textColor="@color/mainly_green"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintStart_toEndOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@id/text_username"
+        android:text="@string/user_details" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/notification"
+        app:layout_constraintBottom_toBottomOf="@id/text_username"
+        app:layout_constraintEnd_toStartOf="@id/right_guideLine"
+        app:layout_constraintTop_toTopOf="@id/text_username" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEmployee"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/orange"
+        android:text="@string/employee"
+        android:textSize="@dimen/_12sdp"
+        app:cornerRadius="@dimen/_8sdp"
+        app:icon="@drawable/hr_person"
+        app:iconGravity="textTop"
+        app:iconSize="@dimen/_50sdp"
+        app:layout_constraintEnd_toStartOf="@+id/btnTasks"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/second_top_guideLine"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTasks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/tasks"
+        android:textSize="@dimen/_12sdp"
+        app:cornerRadius="@dimen/_8sdp"
+        app:icon="@drawable/check"
+        app:iconGravity="textTop"
+        app:iconSize="@dimen/_50sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnEmployee"
+        app:layout_constraintTop_toTopOf="@id/second_top_guideLine"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReports"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/purble"
+        android:text="@string/reports"
+        android:textSize="@dimen/_12sdp"
+        app:cornerRadius="@dimen/_8sdp"
+        app:icon="@drawable/files"
+        app:iconGravity="textTop"
+        app:iconSize="@dimen/_50sdp"
+        app:layout_constraintEnd_toStartOf="@+id/btnAttendance"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEmployee"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAttendance"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/mainly_green"
+        android:text="@string/attendance_leaving"
+        android:textSize="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_8sdp"
+        app:icon="@drawable/finger_print"
+        app:iconGravity="textTop"
+        app:iconSize="@dimen/_50sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnReports"
+        app:layout_constraintTop_toBottomOf="@id/btnTasks"
+        app:layout_constraintWidth_percent="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
