@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mintGreen"
-    tools:context="ui.mainUi.hr.ProfileFragment">
+   >
 
 
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/specialist_doctor"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@id/iconSpecialist"
                 app:layout_constraintStart_toEndOf="@id/iconSpecialist"
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/male"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@id/icon_gender"
                 app:layout_constraintStart_toEndOf="@id/icon_gender"
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/birth_date"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@id/iconDate"
                 app:layout_constraintStart_toEndOf="@id/iconDate"
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/adress2"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@id/icon_location"
                 app:layout_constraintStart_toEndOf="@id/icon_location"
@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/singel"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
 
                 app:layout_constraintBottom_toBottomOf="@id/iconSingle"
@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="@string/mail"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintStart_toEndOf="@id/iconEmail"
                 app:layout_constraintTop_toTopOf="@id/iconEmail" />
@@ -214,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:text="096521145523"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/text_color2"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@id/icon_phone"
                 app:layout_constraintStart_toEndOf="@id/icon_phone"

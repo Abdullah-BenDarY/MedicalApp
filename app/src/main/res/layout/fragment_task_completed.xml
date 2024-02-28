@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".common.TaskCompletedFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.24" />
+
+    <ImageView
+        android:id="@+id/iconDone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_task_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/g1" />
+
+    <TextView
+        android:id="@+id/text_task_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/the_request_has_been_canceled_successfuly"
+        android:textColor="@color/green_task"
+        android:textSize="@dimen/_17sdp"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_7sdp"
+        app:layout_constraintEnd_toEndOf="@id/iconDone"
+        app:layout_constraintStart_toStartOf="@id/iconDone"
+        app:layout_constraintTop_toBottomOf="@id/iconDone"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBackToHome"
+        style="@style/btnMintGreen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/back_to_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/text_task_done"
+        app:layout_constraintStart_toStartOf="@id/text_task_done"
+        android:layout_marginBottom="@dimen/_30sdp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

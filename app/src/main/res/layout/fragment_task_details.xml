@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    tools:context=".spesialist.TaskDetailsFragment">
+
+    <TextView
+        android:id="@+id/tvCaseDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/case_details"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:src="@drawable/btn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPatientName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_name"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvPatientAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/age"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientName" />
+
+    <TextView
+        android:id="@+id/tvPatientPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientAge" />
+
+    <TextView
+        android:id="@+id/tvPatientDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_date"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientPhone" />
+
+
+    <TextView
+        android:id="@+id/tvPatientStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientDate" />
+
+    <TextView
+        android:id="@+id/tvCaseDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/case_description"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientStatus" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nulle"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        android:maxLines="1"
+        android:maxLength="27"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvPatientName"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientName"/>
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Null"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        android:maxLines="1"
+        android:maxLength="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvPatientAge"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientAge"/>
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nulle"
+        android:maxLines="1"
+        android:maxLength="11"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvPatientPhone"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientPhone"/>
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nulle"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        android:maxLines="1"
+        android:maxLength="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvPatientDate"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientDate"/>
+    <ImageView
+        android:id="@+id/icStastus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvPatientStatus"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientStatus"
+        android:src="@drawable/icon_waiting"
+        />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:text="@string/nulle"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@id/tvPatientStatus"
+        app:layout_constraintEnd_toStartOf="@+id/icStastus"
+        app:layout_constraintTop_toTopOf="@id/tvPatientStatus" />
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nulle"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/_15sdp"
+        android:maxLines="15"
+        android:scrollbars="vertical"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/_3sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCaseDescription"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSelectEmployee"
+        style="@style/btnRed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/logout"
+        app:icon="@drawable/logout_icon"
+        app:iconGravity="textEnd"
+        app:iconSize="@dimen/_15sdp"
+        app:iconPadding="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

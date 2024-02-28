@@ -19,7 +19,7 @@
 
 
             <ImageView
-                android:id="@+id/img_user"
+                android:id="@+id/imgUser"
                 android:layout_width="@dimen/_55sdp"
                 android:layout_height="@dimen/_55sdp"
                 android:padding="@dimen/_4sdp"
@@ -30,37 +30,27 @@
                 tools:src="@drawable/icon" />
 
             <TextView
-                android:id="@+id/text_username"
+                android:id="@+id/textUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:textSize="@dimen/_20sdp"
-                app:layout_constraintStart_toEndOf="@id/img_user"
-                app:layout_constraintTop_toTopOf="@id/img_user"
+                app:layout_constraintStart_toEndOf="@id/imgUser"
+                app:layout_constraintTop_toTopOf="@id/imgUser"
                 tools:text="@string/user_name" />
 
             <TextView
-                android:id="@+id/text_userdetails"
+                android:id="@+id/textUserdetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintStart_toEndOf="@id/img_user"
-                app:layout_constraintTop_toBottomOf="@id/text_username"
+                app:layout_constraintStart_toEndOf="@id/imgUser"
+                app:layout_constraintTop_toBottomOf="@id/textUsername"
                 tools:text="@string/user_details" />
 
 
-            <ImageView
-                android:id="@+id/connection_status"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:src="@drawable/online_icon"
-                app:layout_constraintBottom_toBottomOf="@id/img_user"
-                app:layout_constraintEnd_toEndOf="@id/img_user"
-                app:layout_constraintTop_toTopOf="@id/img_user"
-                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

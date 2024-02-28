@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mainUi.HrFragment">
-
+>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_guideLine"
         android:layout_width="0dp"
@@ -36,7 +35,7 @@
 
 
     <ImageView
-        android:id="@+id/img_user"
+        android:id="@+id/imgUser"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="@dimen/_4sdp"
@@ -47,34 +46,34 @@
         app:layout_constraintWidth_percent="0.2" />
 
     <TextView
-        android:id="@+id/text_username"
+        android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4sdp"
         android:textSize="@dimen/_20sdp"
-        app:layout_constraintStart_toEndOf="@id/img_user"
-        app:layout_constraintTop_toTopOf="@id/img_user"
+        app:layout_constraintStart_toEndOf="@id/imgUser"
+        app:layout_constraintTop_toTopOf="@id/imgUser"
         android:text="@string/user_name"
          />
 
     <TextView
-        android:id="@+id/text_userdetails"
+        android:id="@+id/textUserdetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4sdp"
         android:textColor="@color/mainly_green"
         android:textSize="@dimen/_15sdp"
-        app:layout_constraintStart_toEndOf="@id/img_user"
-        app:layout_constraintTop_toBottomOf="@id/text_username"
+        app:layout_constraintStart_toEndOf="@id/imgUser"
+        app:layout_constraintTop_toBottomOf="@id/textUsername"
         android:text="@string/user_details" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/notification"
-        app:layout_constraintBottom_toBottomOf="@id/text_username"
+        app:layout_constraintBottom_toBottomOf="@id/textUsername"
         app:layout_constraintEnd_toStartOf="@id/right_guideLine"
-        app:layout_constraintTop_toTopOf="@id/text_username" />
+        app:layout_constraintTop_toTopOf="@id/textUsername" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEmployee"

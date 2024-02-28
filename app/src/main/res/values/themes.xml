@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.MedicalApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/mintGreen</item>
     </style>
 
     <style name="CircularShapeOverlay">
@@ -10,21 +8,9 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="inputLayoutStyle">
-        <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>
-        <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/_8sdp</item>
-        <item name="boxStrokeColor">@color/mintGreen</item>
-        <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/gray3</color>
-        <item name="boxStrokeWidth">1dp</item>
-        <item name="android:textColorHint">@color/gray3</item>
-        <item name="startIconTint">@color/mintGreen</item>
-        <item name="hintEnabled">false</item>
-        <item name="boxStrokeWidthFocused">1.5dp</item>
-        <item name="hintTextColor">@color/mintGreen</item>
-        <item name="passwordToggleTint">@color/mintGreen</item>
-    </style>
+
+
+
 
     <style name="Theme.MedicalApp" parent="Base.Theme.MedicalApp" />
 </resources>

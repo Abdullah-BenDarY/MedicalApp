@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".spesialist.FragmentCreateCall">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_call"
+            android:textColor="@color/text_header"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:src="@drawable/btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            style="@style/inputLayoutStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline5">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPatientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="15dp"
+                android:hint="@string/patient_name"
+                android:textColorHint="@color/dark_gray"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            style="@style/inputLayoutStyle"
+            app:layout_constraintEnd_toEndOf="@id/patientName"
+            app:layout_constraintStart_toStartOf="@id/patientName"
+            app:layout_constraintTop_toBottomOf="@id/patientName">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="15dp"
+                android:textColorHint="@color/dark_gray"
+
+                android:hint="@string/age"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            style="@style/inputLayoutStyle"
+            app:layout_constraintEnd_toEndOf="@id/patientName"
+            app:layout_constraintStart_toStartOf="@id/patientName"
+            app:layout_constraintTop_toBottomOf="@id/age">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="15dp"
+                android:hint="@string/phone"
+                android:textColorHint="@color/dark_gray"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/txtSelectDoc"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:background="@drawable/search_background"
+            android:drawablePadding="@dimen/_5sdp"
+            android:hint="@string/select_doctor"
+            android:textColorHint="@color/dark_gray"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@+id/patientName"
+            app:layout_constraintStart_toStartOf="@+id/patientName"
+            app:layout_constraintTop_toBottomOf="@+id/phone"
+            app:drawableEndCompat="@drawable/arrow_drop_down" />
+
+
+        <EditText
+            android:id="@+id/edtCaseDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/search_background"
+            android:gravity="top"
+            android:hint="@string/case_description"
+            android:textColorHint="@color/dark_gray"
+            android:padding="@dimen/_10ssp"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@+id/txtSelectDoc"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintStart_toStartOf="@+id/txtSelectDoc"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelectDoc" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_13sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:backgroundTint="#06CAB8"
+            app:cornerRadius="@dimen/_6sdp"
+            android:text="@string/send_call"
+            app:layout_constraintEnd_toEndOf="@id/edtCaseDescription"
+            app:layout_constraintStart_toStartOf="@+id/edtCaseDescription"
+            app:layout_constraintTop_toBottomOf="@id/edtCaseDescription" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.085" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
