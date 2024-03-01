@@ -27,10 +27,10 @@ class AdapterRecyclerCategory : RecyclerView.Adapter<AdapterRecyclerCategory.Hol
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-
-        val data = differ.currentList[position]
-        holder.bind(data, selectedPosition == position)
-
+//
+//        val data = differ.currentList[position]
+//        holder.bind(data, selectedPosition == position)
+//
 //        if (selectedPosition > 0) {
 //            notifyItemChanged(selectedPosition)
 //        }

@@ -1,6 +1,8 @@
 package com.example.medicalapp.ui.hr
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +27,7 @@ import com.example.medicalapp.util.showToast
 class EmployeeFragment : Fragment() {
     private var _binding: FragmentEmployeeBinding? = null
     private val binding get() = _binding!!
-    private val adapterCategory by lazy { AdapterRecyclerCategory() }
+    private var adapterCategory = AdapterRecyclerCategory()
     private var adapterEmployee = AdapterRecyclerEmployeeNames()
     var typeList = ArrayList<ModelCategory>()
     lateinit var usersData: List<UsersData>
@@ -38,13 +40,20 @@ class EmployeeFragment : Fragment() {
         _binding = FragmentEmployeeBinding.inflate(inflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onClicks()
         setCategoryAdapter()
         observe()
     }
+
     private fun observe() {
+        viewModel.filterdList.observe(viewLifecycleOwner){response ->
+            adapterEmployee.employeeData = response
+            adapterEmployee.notifyDataSetChanged()
+        }
+
         viewModel.getUsers(ALL)
         viewModel.mutableUsersLiveData.observe(viewLifecycleOwner) { response ->
             when (response) {
@@ -82,8 +91,33 @@ class EmployeeFragment : Fragment() {
             btnBack.setOnClickListener {
                 findNavController().navigateUp()
             }
-        }
+            searchBox.addTextChangedListener(object  : TextWatcher{
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+                    viewModel.filterText(s.toString())
+                }
+                })
+            }
     }
+
+//    private fun setupCategoryAdapter() {
+//        val dataList = listOf("All", "Doctor", "Nurse" , "HR" , "Analysis")
+//        val categoryRecyclerView = binding.recyclerTabs
+//        adapterCategory = AdapterRecyclerCategory()
+//        adapterCategory.differ = dataList
+//        categoryRecyclerView.adapter = adapterCategory
+//    }
 
     private fun setCategoryAdapter() {
         typeList.add(ModelCategory(ALL))
@@ -102,5 +136,10 @@ class EmployeeFragment : Fragment() {
         adapterEmployee = AdapterRecyclerEmployeeNames()
         adapterEmployee.employeeData = usersData
         rv.adapter = adapterEmployee
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

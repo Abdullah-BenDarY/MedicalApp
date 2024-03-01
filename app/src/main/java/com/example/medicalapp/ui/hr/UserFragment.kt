@@ -73,12 +73,16 @@ class UserFragment : Fragment() {
                 findNavController().navigateUp()
             }
             btnCreateUser.setOnClickListener {
-
               validation()
+                findNavController().navigateUp()
             }
         }
     }
     private fun observe() {
+
+
+
+
         hrViewModel.mutableLiveData.observe(viewLifecycleOwner) { response ->
             when (response) {
 

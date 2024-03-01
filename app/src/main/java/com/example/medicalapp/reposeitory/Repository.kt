@@ -1,9 +1,12 @@
 package com.example.medicalapp.reposeitory
 
+import com.example.medicalapp.data.ModelAlluser
+import com.example.medicalapp.data.UsersData
 import com.example.medicalapp.network.RetroConnection
 import retrofit2.http.Field
 
 class Repository {
+    private val originalList: ModelAlluser? = null
 
     suspend fun login(email: String, password: String, deviceToken: String) =
         RetroConnection.api.login(email, password, deviceToken)
@@ -41,5 +44,14 @@ class Repository {
 
     suspend fun getAllUsers(type : String)
             = RetroConnection.api.getAllUsers(type)
+
+     fun filterUsers (query : String): List<UsersData> {
+        return originalList?.data?.filter {
+            it.first_name.contains(query, ignoreCase = true) || it.type.contains(
+                query,
+                ignoreCase = true
+            )
+        } ?: emptyList()
+    }
 }
 
