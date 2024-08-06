@@ -2,6 +2,7 @@ package com.example.medicalapp.network
 
 import com.example.medicalapp.data.ModelAlluser
 import com.example.medicalapp.data.ModelCallsResponce
+import com.example.medicalapp.data.ModelDoctorCases
 import com.example.medicalapp.data.ModelGetAllCalls
 import com.example.medicalapp.data.ModelLogin
 import com.example.medicalapp.data.ModelNewUser
@@ -74,6 +75,9 @@ interface ApiCalls {
         @Field("status") status: String
     ): ModelCallsResponce
 
+
+    @GET("case")
+    suspend fun getAllCases():ModelDoctorCases
 
 
 
