@@ -123,4 +123,5 @@
     <string name="nulle">Null</string>
     <string name="wrong_email">Wrong email</string>
     <string name="call_accepted">Call accepted</string>
+    <string name="show_details">Show Details</string>
 </resources>

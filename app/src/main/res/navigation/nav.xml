@@ -188,11 +188,23 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_doctorFragment_to_doctorCasesFragment"
+            app:destination="@id/doctorCasesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/callsFragment"
         android:name="com.example.medicalapp.ui.doctor.CallsFragment"
         android:label="fragment_calls"
         tools:layout="@layout/fragment_doctor_calls" />
+    <fragment
+        android:id="@+id/doctorCasesFragment"
+        android:name="com.example.medicalapp.ui.doctor.DoctorCasesFragment"
+        android:label="DoctorCasesFragment"
+        tools:layout="@layout/fragment_doctor_cases" />
 
 </navigation>

@@ -32,7 +32,7 @@ class AdapterCalls : RecyclerView.Adapter<AdapterCalls.CallsHolder>() {
     fun setOnBussyClick(onBusyClick: (Int) -> Unit) {
         this.onBusyClick = onBusyClick}
 
-    fun deleteItem(position: Int) {
+    private fun deleteItem(position: Int) {
         if (position >= 0 && position < (callsData?.size ?: 0)) {
             callsData?.removeAt(position)
             notifyItemRemoved(position)
@@ -53,9 +53,6 @@ class AdapterCalls : RecyclerView.Adapter<AdapterCalls.CallsHolder>() {
                 deleteItem(layoutPosition)
             }
         }
-
-
-
             fun bind(calls: CallsData) {
                 binding.apply {
                     tvUsername.text = calls.patient_name
