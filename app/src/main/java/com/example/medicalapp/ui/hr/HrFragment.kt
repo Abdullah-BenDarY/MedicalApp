@@ -9,8 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.medicalapp.R
 import com.example.medicalapp.databinding.FragmentHrBinding
 import com.example.medicalapp.util.SharedPrefs
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HrFragment : Fragment() {
     private var _binding: FragmentHrBinding? = null
     private val binding get() = _binding!!

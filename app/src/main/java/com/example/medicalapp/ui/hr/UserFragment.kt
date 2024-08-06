@@ -16,37 +16,30 @@ import com.example.medicalapp.util.Resource
 import com.example.medicalapp.util.SharedPrefs
 import com.example.medicalapp.util.showToast
 import com.google.android.material.datepicker.MaterialDatePicker
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
+@AndroidEntryPoint
 class UserFragment : Fragment() {
 
     private val hrViewModel: HrViewModel by viewModels()
     private var _binding: FragmentUserBinding? = null
-
     private val binding get() = _binding!!
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentUserBinding.bind(view)
-
         onClicks()
         observe()
 
@@ -55,13 +48,11 @@ class UserFragment : Fragment() {
 
     private fun onClicks() {
 
-
         binding.apply {
             dateOfBirth.setOnClickListener {
                 val datePicker =
                     MaterialDatePicker.Builder.datePicker()
                         .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-//                        .setTheme(R.style.AppBaseTheme)
                         .build()
                 datePicker.show(parentFragmentManager, " material_date_picker")
                 datePicker.addOnPositiveButtonClickListener {
@@ -73,16 +64,14 @@ class UserFragment : Fragment() {
                 findNavController().navigateUp()
             }
             btnCreateUser.setOnClickListener {
-              validation()
+                validation()
                 findNavController().navigateUp()
+
             }
         }
     }
+
     private fun observe() {
-
-
-
-
         hrViewModel.mutableLiveData.observe(viewLifecycleOwner) { response ->
             when (response) {
 

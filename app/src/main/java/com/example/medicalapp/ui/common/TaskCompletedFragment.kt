@@ -1,4 +1,4 @@
-package com.example.medicalapp.common
+package com.example.medicalapp.ui.common
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

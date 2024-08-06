@@ -6,6 +6,8 @@
     <style name="CircularShapeOverlay">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+        <item name="backgroundTint">@color/mainly_green</item>
+        <item name="iconTint">@color/white</item>
     </style>
 
 

@@ -1,4 +1,4 @@
-package com.example.medicalapp.common
+package com.example.medicalapp.ui.common
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
     private val args: ProfileFragmentArgs by navArgs()
     var user : UserData? = null
 
-    val viewModel :ProfileViewModel by viewModels()
+    val viewModel : ProfileViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

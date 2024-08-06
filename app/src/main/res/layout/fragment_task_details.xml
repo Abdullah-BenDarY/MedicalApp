@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/_10sdp"
     android:layout_marginEnd="@dimen/_10sdp"
-    tools:context=".spesialist.TaskDetailsFragment">
+    tools:context=".ui.spesialist.TaskDetailsFragment">
 
     <TextView
         android:id="@+id/tvCaseDetails"

@@ -2,14 +2,16 @@ package com.example.medicalapp.reposeitory
 
 import com.example.medicalapp.data.ModelAlluser
 import com.example.medicalapp.data.UsersData
-import com.example.medicalapp.network.RetroConnection
-import retrofit2.http.Field
+import com.example.medicalapp.network.ApiCalls
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class Repository {
+@Singleton
+class Repository @Inject constructor(private val api: ApiCalls ){
     private val originalList: ModelAlluser? = null
 
     suspend fun login(email: String, password: String, deviceToken: String) =
-        RetroConnection.api.login(email, password, deviceToken)
+      api.login(email, password, deviceToken )
 
     suspend fun registerNewUser(
         email: String,
@@ -23,7 +25,7 @@ class Repository {
         address: String,
         mobile: String,
         type: String
-    ) = RetroConnection.api.registerNewUser(
+    ) =api.registerNewUser(
         email,
         password,
         fName,
@@ -37,13 +39,19 @@ class Repository {
         type
     )
 
-    suspend fun showProfile(id: Int)= RetroConnection.api.showProfile(id)
+    suspend fun showProfile(id: Int)= api.showProfile(id)
 
     suspend fun createCall(patientName: String,doctorId: Int,age: String,phone :String,description:String)
-            = RetroConnection.api.createCall(patientName, doctorId, age, phone, description)
+            = api.createCall(patientName, doctorId, age, phone, description)
 
     suspend fun getAllUsers(type : String)
-            = RetroConnection.api.getAllUsers(type)
+            = api.getAllUsers(type)
+
+    suspend fun getAllCalls()
+            = api.getAllCalls()
+
+    suspend fun acceptOrRejectCall(status: String , id: Int )
+            = api.acceptOrRejectCall(id , status)
 
      fun filterUsers (query : String): List<UsersData> {
         return originalList?.data?.filter {

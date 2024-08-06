@@ -1,4 +1,4 @@
-package com.example.medicalapp.spesialist
+package com.example.medicalapp.ui.spesialist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.medicalapp.R
 import com.example.medicalapp.databinding.FragmentReceptionistBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ReceptionistFragment : Fragment() {
     private var _binding: FragmentReceptionistBinding? = null
     private val binding get() = _binding!!

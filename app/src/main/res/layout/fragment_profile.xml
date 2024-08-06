@@ -246,10 +246,6 @@
         android:src="@drawable/mask" />
 
 
-
-
-
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"

@@ -10,21 +10,21 @@ import com.example.medicalapp.data.UsersData
 import com.example.medicalapp.network.NetworkState
 import com.example.medicalapp.reposeitory.Repository
 import com.example.medicalapp.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.temporal.TemporalQuery
-
-class HrViewModel : ViewModel() {
+import javax.inject.Inject
+@HiltViewModel
+class HrViewModel @Inject constructor( val repository : Repository): ViewModel() {
     private val _createUserLiveData = MutableLiveData<Resource<Data>>()
     private val _mutableUsersLiveData = MutableLiveData<Resource<List<UsersData>?>>()
     private val _filterdList= MutableLiveData<List<UsersData>?>()
     val mutableLiveData get() = _createUserLiveData
     val mutableUsersLiveData get() = _mutableUsersLiveData
     val filterdList get() = _filterdList
-
-    val repository = Repository()
 
 
     fun filterText(query: String) {
@@ -61,7 +61,7 @@ class HrViewModel : ViewModel() {
         mobile: String,
         type: String
     ) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(IO) {
             try {
                 val data = repository.registerNewUser(
                     email,

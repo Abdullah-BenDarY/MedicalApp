@@ -121,4 +121,6 @@
     <string name="select_date">Select date</string>
     <string name="the_request_has_been_canceled_successfuly">The request has been canceled successfuly</string>
     <string name="nulle">Null</string>
+    <string name="wrong_email">Wrong email</string>
+    <string name="call_accepted">Call accepted</string>
 </resources>

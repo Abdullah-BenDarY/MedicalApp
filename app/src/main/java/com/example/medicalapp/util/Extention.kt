@@ -15,9 +15,9 @@ import com.google.android.material.snackbar.Snackbar
 fun Fragment.showToast (massage : Any?) {
     Toast.makeText(requireContext(), "$massage", Toast.LENGTH_LONG).show()
 
-    fun Fragment.showToast (massage : Any?){
-        Toast.makeText(requireContext() ,"$massage" , Toast.LENGTH_LONG ).show()
-    }
+//    fun Fragment.showToast (massage : Any?){
+//        Toast.makeText(requireContext() ,"$massage" , Toast.LENGTH_LONG ).show()
+//    }
 
     fun Fragment.showToastShort(massage : Any){
         Toast.makeText(requireContext() ,"$massage" , Toast.LENGTH_SHORT ).show()

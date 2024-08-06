@@ -1,28 +1,28 @@
 package com.example.medicalapp.ui.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.medicalapp.R
-import com.example.medicalapp.data.UserData
-import com.example.medicalapp.util.HR
-import com.example.medicalapp.util.REQUIRED
 import com.example.medicalapp.databinding.FragmentLoginBinding
+import com.example.medicalapp.util.DOCTOR
+import com.example.medicalapp.util.HR
 import com.example.medicalapp.util.RECEPTIONIST
+import com.example.medicalapp.util.REQUIRED
 import com.example.medicalapp.util.Resource
 import com.example.medicalapp.util.SharedPrefs
 import com.example.medicalapp.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    val viewModel: LoginViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +34,19 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentLoginBinding.bind(view)
-
         observe()
-        binding.btnLogin.setOnClickListener {
-            val email = binding.editEmail.text.toString().trim()
-            val password = binding.editPassword.text.toString().trim()
-            if (validateLogin(email, password)) {
-                viewModel.login(email, password, "")
+        onClick()
+    }
+
+    private fun onClick() {
+
+        binding.apply {
+            btnLogin.setOnClickListener {
+                val email = editEmail.text.toString().trim()
+                val password = editPassword.text.toString().trim()
+                if (validateLogin(email, password)) {
+                    viewModel.login(email, password, "")
+                }
             }
         }
     }
@@ -52,8 +58,7 @@ class LoginFragment : Fragment() {
 
                 is Resource.Success -> {
                     response.data?.let { userData ->
-                        showToast(R.string.welcome_back)
-
+                        showToast(getString(R.string.welcome_back))
                         SharedPrefs.setUserToken(userData.access_token)
                         SharedPrefs.setUserType(userData.type)
                         SharedPrefs.setUserName(userData.first_name + " " + userData.last_name)
@@ -72,15 +77,16 @@ class LoginFragment : Fragment() {
 
 
     private fun navigate(type: String) {
-        if (type == HR ) {
+        if (type == HR) {
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToHrFragment()
-            )
-        }
-        else if ( type == RECEPTIONIST){
+                LoginFragmentDirections.actionLoginFragmentToHrFragment())
+        } else if (type == RECEPTIONIST) {
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToReceptionistFragment()
-            )
+                LoginFragmentDirections.actionLoginFragmentToReceptionistFragment())
+        }else if (type == DOCTOR) {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToDoctorFragment())
+        } else{
         }
     }
 
@@ -96,7 +102,7 @@ class LoginFragment : Fragment() {
             binding.editPassword.requestFocus()
             return false
         } else if (!emailRegex.matches(email)) {
-            binding.editEmail.error = "Wrong email"
+            binding.editEmail.error = getString(R.string.wrong_email)
             binding.editEmail.requestFocus()
             return false
         } else {

@@ -1,4 +1,4 @@
-package com.example.medicalapp.spesialist
+package com.example.medicalapp.ui.spesialist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.medicalapp.R
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FragmentCreateCall : Fragment() {
 
 

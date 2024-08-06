@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="spinner_specialist_items">
-        <item>Specialist</item>
-        <item>Doctor</item>
-        <item>Nurse</item>
-        <item>Receptionist</item>
-        <item>Manger</item>
-        <item>Laboratory physician</item>
-        <item>Hr</item>
+        <item>specialist</item>
+        <item>doctor</item>
+        <item>nurse</item>
+        <item>receptionist</item>
+        <item>manger</item>
+        <item>laboratory physician</item>
+        <item>hr</item>
         <!-- Add more items as needed -->
     </array>
     <array name="spinner_genders">

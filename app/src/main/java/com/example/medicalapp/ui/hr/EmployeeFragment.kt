@@ -3,6 +3,7 @@ package com.example.medicalapp.ui.hr
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.medicalapp.adapters.AdapterRecyclerCategory
+//import com.example.medicalapp.adapters.AdapterRecyclerCategory
 import com.example.medicalapp.adapters.AdapterRecyclerEmployeeNames
 import com.example.medicalapp.data.ModelCategory
 import com.example.medicalapp.data.UsersData
@@ -23,15 +25,19 @@ import com.example.medicalapp.util.NURSE
 import com.example.medicalapp.util.RECEPTIONIST
 import com.example.medicalapp.util.Resource
 import com.example.medicalapp.util.showToast
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class EmployeeFragment : Fragment() {
+@AndroidEntryPoint
+class EmployeeFragment  : Fragment() {
     private var _binding: FragmentEmployeeBinding? = null
     private val binding get() = _binding!!
     private var adapterCategory = AdapterRecyclerCategory()
     private var adapterEmployee = AdapterRecyclerEmployeeNames()
+    val viewModel: HrViewModel by viewModels()
     var typeList = ArrayList<ModelCategory>()
     lateinit var usersData: List<UsersData>
-    val viewModel: HrViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +50,8 @@ class EmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onClicks()
-        setCategoryAdapter()
+//        setCategoryAdapter()
+//        setupCategoryAdapter()
         observe()
     }
 
@@ -113,23 +120,22 @@ class EmployeeFragment : Fragment() {
 
 //    private fun setupCategoryAdapter() {
 //        val dataList = listOf("All", "Doctor", "Nurse" , "HR" , "Analysis")
-//        val categoryRecyclerView = binding.recyclerTabs
 //        adapterCategory = AdapterRecyclerCategory()
-//        adapterCategory.differ = dataList
-//        categoryRecyclerView.adapter = adapterCategory
+//        binding.recyclerTabs.adapter = adapterCategory
 //    }
 
-    private fun setCategoryAdapter() {
-        typeList.add(ModelCategory(ALL))
-        typeList.add(ModelCategory(DOCTOR))
-        typeList.add(ModelCategory(HR))
-        typeList.add(ModelCategory(NURSE))
-        typeList.add(ModelCategory(RECEPTIONIST))
-        typeList.add(ModelCategory(MANAGER))
-        typeList.add(ModelCategory(ANALYSIS))
-        adapterCategory.differ.submitList(typeList)
-        binding.recyclerTabs.adapter = adapterCategory
-    }
+//    private fun setCategoryAdapter() {
+//        typeList.add(ModelCategory(ALL))
+//        typeList.add(ModelCategory(DOCTOR))
+//        typeList.add(ModelCategory(HR))
+//        typeList.add(ModelCategory(NURSE))
+//        typeList.add(ModelCategory(RECEPTIONIST))
+//        typeList.add(ModelCategory(MANAGER))
+//        typeList.add(ModelCategory(ANALYSIS))
+//        binding.recyclerTabs.adapter = adapterCategory
+//        adapterCategory = AdapterRecyclerCategory()
+//
+//    }
 
     private fun setupAdapter() {
         val rv = binding.recyclerEmployees
@@ -138,8 +144,8 @@ class EmployeeFragment : Fragment() {
         rv.adapter = adapterEmployee
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
+        override fun onDestroy() {
+            super.onDestroy()
+            _binding = null
+        }
 }

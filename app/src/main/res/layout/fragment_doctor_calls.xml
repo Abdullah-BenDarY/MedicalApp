@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvCalls"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_12sdp"
@@ -17,13 +17,13 @@
         android:text="@string/calls"
         android:textColor="@color/text_header"
         android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_16sdp"
@@ -32,35 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtDate"
-        style="@style/inputLayoutStyle"
-        android:layout_width="@dimen/_240sdp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/search_background"
-        android:gravity="center_vertical"
-        android:hint="@string/select_date"
-        android:paddingStart="@dimen/_10sdp"
-        app:drawableEndCompat="@drawable/icon_calander"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddCall"
-        app:layout_constraintEnd_toStartOf="@+id/btnAddCall"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnAddCall" />
-
-    <TextView
-        android:id="@+id/btnAddCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/icon_add"
-       android:layout_marginStart="@dimen/_15sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtDate"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvEmployee"
+        android:id="@+id/rvCalls"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -68,8 +41,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate"
-        tools:listitem="@layout/item_task" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCalls"
+        tools:listitem="@layout/item_doctor_calls" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
 package com.example.medicalapp.util
 
 
-const val BASE_URL = "http://api.instant-ss.com/api/v1/"
+const val BASE_URL = "https://hospital.elhossiny.net/api/v1/"
 val REQUIRED = "required"
 
 const val ALL = "All"
@@ -23,4 +23,7 @@ const val REJECT_CALL = "reject"
 
 const val STATUS_LOGOUT  = "logout"
 const val STATS_TASK_DONE = "done"
+
+const val ACCEPT = "accept"
+const val REJECT = "reject"
 
