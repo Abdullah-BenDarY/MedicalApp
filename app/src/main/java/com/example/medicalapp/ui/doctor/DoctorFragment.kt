@@ -19,10 +19,7 @@ class DoctorFragment : BaseFragment<FragmentDoctorBinding>(FragmentDoctorBinding
         savedInstanceState: Bundle?
     ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,13 +28,16 @@ class DoctorFragment : BaseFragment<FragmentDoctorBinding>(FragmentDoctorBinding
         setupUi()
     }
 
-
-
     override fun onClicks() {
         binding.apply {
             btnCalls.setOnClickListener {
                 findNavController().navigate(
                     DoctorFragmentDirections.actionDoctorFragmentToCallsFragment()
+                )
+            }
+            btnCases.setOnClickListener {
+                findNavController().navigate(
+                    DoctorFragmentDirections.actionDoctorFragmentToDoctorCasesFragment()
                 )
             }
         }

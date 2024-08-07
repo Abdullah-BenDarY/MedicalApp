@@ -44,14 +44,13 @@ class Repository @Inject constructor(private val api: ApiCalls ){
     suspend fun createCall(patientName: String,doctorId: Int,age: String,phone :String,description:String)
             = api.createCall(patientName, doctorId, age, phone, description)
 
-    suspend fun getAllUsers(type : String)
-            = api.getAllUsers(type)
+    suspend fun getAllUsers(type : String) = api.getAllUsers(type)
 
-    suspend fun getAllCalls()
-            = api.getAllCalls()
+    suspend fun getAllCalls() = api.getAllCalls()
 
-    suspend fun acceptOrRejectCall(status: String , id: Int )
-            = api.acceptOrRejectCall(id , status)
+    suspend fun acceptOrRejectCall(status: String , id: Int ) = api.acceptOrRejectCall(id , status)
+
+    suspend fun getAllCases() = api.getAllCases()
 
      fun filterUsers (query : String): List<UsersData> {
         return originalList?.data?.filter {
