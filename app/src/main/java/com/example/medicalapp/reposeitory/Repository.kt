@@ -49,6 +49,7 @@ class Repository @Inject constructor(private val api: ApiCalls ){
     suspend fun getAllCalls() = api.getAllCalls()
 
     suspend fun acceptOrRejectCall(status: String , id: Int ) = api.acceptOrRejectCall(id , status)
+    suspend fun endCase( id: Int ) = api.endCase( id )
 
     suspend fun getAllCases() = api.getAllCases()
 

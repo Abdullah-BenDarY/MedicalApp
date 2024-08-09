@@ -27,3 +27,7 @@ const val STATS_TASK_DONE = "done"
 const val ACCEPT = "accept"
 const val REJECT = "reject"
 
+const val CASE = "Case"
+const val MEDICAL_RECORD = "Medical Record"
+const val MEDICAL_MEASUREMENT = "Medical Measurement"
+

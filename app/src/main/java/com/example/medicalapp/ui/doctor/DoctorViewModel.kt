@@ -53,6 +53,22 @@ class DoctorViewModel @Inject constructor(val repository: Repository) : ViewMode
         }
     }
 
+    fun endCase (id: Int) {
+        viewModelScope.launch(IO) {
+            try {
+                val response = repository.endCase( id)
+                if (response.message.isNotEmpty()) {
+                    _callStatusLiveData.postValue(Resource.Success(response))
+
+                } else {
+                    _callStatusLiveData.postValue(Resource.Error(response.message))
+                }
+            } catch (e: Exception) {
+                _callStatusLiveData.postValue(Resource.Error("An error occurred: ${e.message}"))
+            }
+        }
+    }
+
     private val _doctorCassesLiveData = MutableLiveData<Resource<List<DoctotorCasesData>?>>()
     val doctorCassesLiveData get() = _doctorCassesLiveData
     fun getAllCases() {

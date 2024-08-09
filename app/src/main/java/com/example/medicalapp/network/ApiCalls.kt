@@ -75,6 +75,11 @@ interface ApiCalls {
         @Field("status") status: String
     ): ModelCallsResponce
 
+    @PUT("calls/{id}")
+    suspend fun endCase(
+        @Path("id") id: Int
+    ): ModelCallsResponce
+
 
     @GET("case")
     suspend fun getAllCases():ModelDoctorCases

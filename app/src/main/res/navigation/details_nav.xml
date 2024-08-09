@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_nav"
+    app:startDestination="@id/detailsFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.medicalapp.ui.doctor.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_medicalRecordFragment"
+            app:destination="@id/medicalRecordFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_medicalMeasurementFragment"
+            app:destination="@id/medicalMeasurementFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalMeasurementFragment"
+        android:name="com.example.medicalapp.ui.doctor.MedicalMeasurementFragment"
+        android:label="fragment_medical_measurement"
+        tools:layout="@layout/fragment_medical_measurement" >
+        <action
+            android:id="@+id/action_medicalMeasurementFragment_to_medicalRecordFragment"
+            app:destination="@id/medicalRecordFragment" />
+        <action
+            android:id="@+id/action_medicalMeasurementFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalRecordFragment"
+        android:name="com.example.medicalapp.ui.doctor.MedicalRecordFragment"
+        android:label="fragment_medical_record"
+        tools:layout="@layout/fragment_medical_record" >
+        <action
+            android:id="@+id/action_medicalRecordFragment_to_medicalMeasurementFragment"
+            app:destination="@id/medicalMeasurementFragment" />
+        <action
+            android:id="@+id/action_medicalRecordFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>

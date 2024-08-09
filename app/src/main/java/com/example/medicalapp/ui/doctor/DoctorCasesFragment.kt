@@ -19,6 +19,7 @@ import com.example.medicalapp.ui.doctor.adapters.AdapterDoctorCases
 import com.example.medicalapp.util.ACCEPT
 import com.example.medicalapp.util.REJECT
 import com.example.medicalapp.util.Resource
+import com.example.medicalapp.util.SharedPrefs
 import com.example.medicalapp.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,7 +42,8 @@ class DoctorCasesFragment  : BaseFragment<FragmentDoctorCasesBinding>(FragmentDo
             btnBack.setOnClickListener {
                 findNavController().navigateUp()}
             adapterCases.setOnDetailsClick {
-//                findNavController().navigate(R.id.action_doctorCasesFragment_to_taskDetailsFragment)
+                SharedPrefs.setCaseId(it)
+                findNavController().navigate(DoctorCasesFragmentDirections.actionDoctorCasesFragmentToCaseDetailsFragment(it))
             }
         }
     }

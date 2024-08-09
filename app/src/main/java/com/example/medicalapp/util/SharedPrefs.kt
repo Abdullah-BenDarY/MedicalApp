@@ -124,5 +124,15 @@ object SharedPrefs {
         return sharedPreferences.getString("USER_ADRESS", "")
     }
 
+    fun setCaseId(id: Int) {
+        with(sharedPreferences.edit()) {
+            putInt("CASE_ID", id)
+            commit()
+        }
+    }
+
+    fun getCaseId(): Int {
+        return sharedPreferences.getInt("CASE_ID" , 0)
+    }
 
 }
