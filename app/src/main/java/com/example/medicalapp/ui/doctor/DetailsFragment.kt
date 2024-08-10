@@ -17,7 +17,6 @@ private val caseId = SharedPrefs.getCaseId()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.idd.text = caseId.toString()
 
     }
 

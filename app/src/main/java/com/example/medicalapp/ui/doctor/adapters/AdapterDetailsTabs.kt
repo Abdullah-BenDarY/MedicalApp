@@ -1,48 +1,52 @@
 package com.example.medicalapp.ui.doctor.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.medicalapp.data.Tabs
-import com.example.medicalapp.databinding.ItemTabsBinding
+import com.example.medicalapp.R.*
+import com.example.medicalapp.databinding.ItemCaseDetailsTabsBinding
+import com.example.medicalapp.util.CASE
+import com.example.medicalapp.util.MEDICAL_MEASUREMENT
+import com.example.medicalapp.util.MEDICAL_RECORD
 
-class AdapterDetailsTabs : RecyclerView.Adapter<AdapterDetailsTabs.CallsHolder>() {
-    var casesData: List<Tabs>? = null
+class AdapterDetailsTabs(val context: Context, val listener: OnItemClickListener) : RecyclerView.Adapter<AdapterDetailsTabs.CallsHolder>() {
+
+    private var casesData = listOf(CASE, MEDICAL_RECORD, MEDICAL_MEASUREMENT)
+    private var selectedPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallsHolder {
-        val binding = ItemTabsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemCaseDetailsTabsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CallsHolder(binding)
     }
 
-    override fun getItemCount() = casesData?.size?: 0
-
     override fun onBindViewHolder(holder: CallsHolder, position: Int) {
-        val cases = casesData?.get(position)
-        if (cases != null) {
-            holder.bind(cases)
+        holder.bind(casesData[position], position)
+    }
+    override fun getItemCount() = casesData.size
+
+    inner class CallsHolder(val binding: ItemCaseDetailsTabsBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(tab: String, position: Int) {
+            binding.apply {
+                btnTabs.text = tab
+                btnTabs.setOnClickListener {
+                    if (selectedPosition == position) {
+                        btnTabs.setBackgroundColor(ContextCompat.getColor(context, color.mintGreen))
+                    } else {
+                        btnTabs.setBackgroundDrawable(ContextCompat.getDrawable(context, drawable.tabs_shape))
+                    }
+                    notifyItemChanged(selectedPosition)
+                    selectedPosition = position
+                    notifyItemChanged(selectedPosition)
+                    listener.onItemClicked(casesData[position])
+                }
+            }
         }
     }
 
-
-    private var onTabsClick: (String) -> Unit = {}
-    fun setOnTabsClick(onDetailsClick: (String) -> Unit) {
-        this.onTabsClick = onDetailsClick}
-
-
-
-    inner class CallsHolder( val binding: ItemTabsBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        init {
-            binding.root.setOnClickListener {
-                onTabsClick.invoke(casesData?.get(layoutPosition)!!.tabName)
-            }
-
-        }
-        fun bind(tabs: Tabs?) {
-            binding.apply {
-               textCategory.text = tabs!!.tabName
-
-            }
-        }
+    interface OnItemClickListener {
+        fun onItemClicked(item: String)
     }
 }

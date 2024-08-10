@@ -19,7 +19,7 @@
     <color name="gray2">#9F9F9F</color>
     <color name="red">#F44336</color>
     <color name="red2">#E63A3A</color>
-
+    <color name="txt_gr">#989898</color>
     <color name="gray3">#858383</color>
     <color name="text_header">#343434</color>
     <color name="green_task">#36F38E</color>

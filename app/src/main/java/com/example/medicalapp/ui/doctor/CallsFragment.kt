@@ -22,7 +22,6 @@ class CallsFragment : BaseFragment<FragmentDoctorCallsBinding>(FragmentDoctorCal
     private val adapterCalls = AdapterCalls()
     private val viewModel: DoctorViewModel by viewModels()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAllCalls()
@@ -30,7 +29,6 @@ class CallsFragment : BaseFragment<FragmentDoctorCallsBinding>(FragmentDoctorCal
         observeCallStatus()
         onClicks()
     }
-
     override fun onClicks() {
         binding.apply {
             btnBack.setOnClickListener {
@@ -43,7 +41,6 @@ class CallsFragment : BaseFragment<FragmentDoctorCallsBinding>(FragmentDoctorCal
             }
         }
     }
-
     private fun observeCalls() {
         viewModel.mutableLiveData.observe(viewLifecycleOwner) { response ->
             when (response) {
@@ -59,13 +56,11 @@ class CallsFragment : BaseFragment<FragmentDoctorCallsBinding>(FragmentDoctorCal
             }
         }
     }
-
     private fun observeCallStatus() {
         viewModel.callStatusLiveData.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success ->
-                    showToast(getString(R.string.call_accepted))
-
+                    showToast(getString(R.string.good_luck))
                 is Resource.Error ->
                     response.message?.let { message ->
                         showToast(message)
@@ -74,7 +69,6 @@ class CallsFragment : BaseFragment<FragmentDoctorCallsBinding>(FragmentDoctorCal
             }
         }
     }
-
     @SuppressLint("NotifyDataSetChanged")
     private fun setupAdapter(callsList: MutableList<CallsData>) {
         adapterCalls.callsData = callsList

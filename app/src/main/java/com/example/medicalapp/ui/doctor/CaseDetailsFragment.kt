@@ -4,11 +4,9 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.medicalapp.R
-import com.example.medicalapp.data.Tabs
 import com.example.medicalapp.databinding.FragmentCaseDetailsBinding
 import com.example.medicalapp.ui.base.BaseFragment
 import com.example.medicalapp.ui.doctor.adapters.AdapterDetailsTabs
@@ -21,18 +19,17 @@ import com.example.medicalapp.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CaseDetailsFragment : BaseFragment<FragmentCaseDetailsBinding>(FragmentCaseDetailsBinding::inflate) {
-    private val adapterTabs = AdapterDetailsTabs()
-    private val tabsList = mutableListOf<Tabs>()
+class CaseDetailsFragment : BaseFragment<FragmentCaseDetailsBinding>(FragmentCaseDetailsBinding::inflate),
+    AdapterDetailsTabs.OnItemClickListener {
+    private lateinit var adapterTabs: AdapterDetailsTabs
     private val viewModel: DoctorViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val caseId = CaseDetailsFragmentArgs.fromBundle(requireArguments()).id
         SharedPrefs.setCaseId(caseId)
-
-        setList(tabsList, listOf(Tabs(CASE), Tabs(MEDICAL_RECORD), Tabs(MEDICAL_MEASUREMENT)))
-        setAdapter(tabsList)
+        adapterTabs = AdapterDetailsTabs(requireContext() ,this)
+        setAdapter()
         observe()
         onClicks(caseId)
     }
@@ -55,14 +52,7 @@ class CaseDetailsFragment : BaseFragment<FragmentCaseDetailsBinding>(FragmentCas
         }
     }
 
-    private fun <T> setList(list: MutableList<T>, items: List<T>) {
-        list.apply {
-            addAll(items)
-        }
-    }
-
     private fun onClicks(caseId: Int) {
-        adapterClicks(adapterTabs, R.id.frCaseDetails)
         binding.apply {
             btnBack.setOnClickListener {
                 findNavController().navigateUp()
@@ -73,7 +63,8 @@ class CaseDetailsFragment : BaseFragment<FragmentCaseDetailsBinding>(FragmentCas
             }
         }
     }
-private fun onEndCaseaClickActions() {
+
+    private fun onEndCaseaClickActions() {
     binding.apply {
         btnEndCase.isEnabled = false
         btnEndCase.backgroundTintList =
@@ -82,33 +73,22 @@ private fun onEndCaseaClickActions() {
         btnEndCase.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_header))
     }
 }
-    private fun setAdapter(list: List<Tabs>) {
-        adapterTabs.casesData = list
+
+    private fun setAdapter() {
         binding.rvTabs.adapter = adapterTabs
     }
 
-    private fun adapterClicks(adapterTabs1: AdapterDetailsTabs, parentfrag: Int) {
-        adapterTabs1.setOnTabsClick { tab ->
-            when (tab) {
-                CASE -> {
-                    fragmentIntent(parentfrag, DetailsFragment())
-                }
-
-                MEDICAL_RECORD -> {
-                    fragmentIntent(parentfrag, MedicalRecordFragment())
-                }
-
-                MEDICAL_MEASUREMENT -> {
-                    fragmentIntent(parentfrag, MedicalMeasurementFragment())
-
-                }
-            }
+    override fun onItemClicked(item: String ) {
+        val fragment = when (item) {
+            CASE -> DetailsFragment()
+            MEDICAL_RECORD -> MedicalRecordFragment()
+            MEDICAL_MEASUREMENT -> MedicalMeasurementFragment()
+            else -> null
         }
-    }
-
-    private fun fragmentIntent(parentfrag: Int, fragment: Fragment) {
-        childFragmentManager.beginTransaction()
-            .replace(parentfrag, fragment)
-            .commit()
+        fragment?.let {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.frCaseDetails, it)
+                .commit()
+        }
     }
 }
