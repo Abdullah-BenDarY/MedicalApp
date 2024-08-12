@@ -35,6 +35,7 @@ class DoctorViewModel @Inject constructor(val repository: Repository) : ViewMode
         }
     }
 
+    // call status & end case
     private val _callStatusLiveData = MutableLiveData<Resource<ModelCallsResponce>?>()
     val callStatusLiveData get() = _callStatusLiveData
     fun getCAllResponce(status: String , id: Int) {
@@ -86,5 +87,7 @@ class DoctorViewModel @Inject constructor(val repository: Repository) : ViewMode
             }
         }
     }
+
+
 
 }

@@ -2,16 +2,15 @@ package com.example.medicalapp.network
 
 import com.example.medicalapp.data.ModelAlluser
 import com.example.medicalapp.data.ModelCallsResponce
+import com.example.medicalapp.data.ModelCaseDetails
 import com.example.medicalapp.data.ModelDoctorCases
 import com.example.medicalapp.data.ModelGetAllCalls
 import com.example.medicalapp.data.ModelLogin
 import com.example.medicalapp.data.ModelNewUser
 import com.example.medicalapp.data.ModelResponseCreation
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -54,7 +53,7 @@ interface ApiCalls {
         type :String
     ): ModelAlluser
 
-    // calls
+    // Reseptionest flow
     @FormUrlEncoded
     @POST("calls")
     suspend fun createCall(
@@ -65,6 +64,8 @@ interface ApiCalls {
         @Field("description") description:String
     ): ModelResponseCreation
 
+
+    // Doctor Calls
     @GET("calls")
     suspend fun getAllCalls():ModelGetAllCalls
 
@@ -80,11 +81,14 @@ interface ApiCalls {
         @Path("id") id: Int
     ): ModelCallsResponce
 
-
     @GET("case")
     suspend fun getAllCases():ModelDoctorCases
 
-
+    @FormUrlEncoded
+    @PUT("case/{id}")
+    suspend fun caseDetails(
+        @Field("id") id: Int
+    ): ModelCaseDetails
 
 
 
