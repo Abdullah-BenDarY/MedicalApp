@@ -53,7 +53,7 @@ class Repository @Inject constructor(private val api: ApiCalls ){
 
     suspend fun getAllCases() = api.getAllCases()
 
-    suspend fun caseDetails(id: Int) = api.caseDetails(id)
+    suspend fun getcaseDetails(id: Int) = api.caseDetails(id)
 
      fun filterUsers (query : String): List<UsersData> {
         return originalList?.data?.filter {

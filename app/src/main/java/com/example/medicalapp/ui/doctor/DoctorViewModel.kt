@@ -4,8 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.medicalapp.data.CallsData
+import com.example.medicalapp.data.CaseDetails
 import com.example.medicalapp.data.DoctotorCasesData
 import com.example.medicalapp.data.ModelCallsResponce
+import com.example.medicalapp.data.ModelCaseDetails
 import com.example.medicalapp.data.ModelDoctorCases
 import com.example.medicalapp.reposeitory.Repository
 import com.example.medicalapp.util.Resource
@@ -88,6 +90,21 @@ class DoctorViewModel @Inject constructor(val repository: Repository) : ViewMode
         }
     }
 
-
+    private val _caseDetailsLiveData = MutableLiveData<Resource<CaseDetails>>()
+    val caseDetailsLiveData get() = _caseDetailsLiveData
+    fun getCaseDetails(id : Int) {
+        viewModelScope.launch(IO) {
+            try {
+                val response = repository.getcaseDetails(id)
+                if(response.data!=null){
+                    _caseDetailsLiveData.postValue(Resource.Success(response.data))
+                }else{
+                    _caseDetailsLiveData.postValue(Resource.Error(response.message))
+                }
+            } catch (e: Exception) {
+                _caseDetailsLiveData.postValue(Resource.Error("An error occurred: ${e.message}"))
+            }
+        }
+    }
 
 }

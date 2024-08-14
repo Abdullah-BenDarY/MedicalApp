@@ -18,9 +18,6 @@ const val ANALYSIS_VIEW_KEY  = "laboratory Physician"
 const val ATTENDANCE  = "attendance"
 const val LEAVING  = "leaving"
 
-const val ACCEPT_CALL = "accept"
-const val REJECT_CALL = "reject"
-
 const val STATUS_LOGOUT  = "logout"
 const val STATS_TASK_DONE = "done"
 
@@ -30,4 +27,5 @@ const val REJECT = "reject"
 const val CASE = "Case"
 const val MEDICAL_RECORD = "Medical Record"
 const val MEDICAL_MEASUREMENT = "Medical Measurement"
+const val PROCESS = "process"
 

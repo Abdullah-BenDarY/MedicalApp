@@ -84,10 +84,9 @@ interface ApiCalls {
     @GET("case")
     suspend fun getAllCases():ModelDoctorCases
 
-    @FormUrlEncoded
-    @PUT("case/{id}")
+    @GET("case/{id}")
     suspend fun caseDetails(
-        @Field("id") id: Int
+        @Path("id") id: Int
     ): ModelCaseDetails
 
 

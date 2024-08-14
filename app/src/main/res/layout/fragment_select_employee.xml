@@ -83,7 +83,7 @@
             android:paddingVertical="@dimen/_10sdp"
             android:text="@string/select_doctor"
             android:layout_marginBottom="@dimen/_10sdp"
-            style="@style/btnMintGreen"
+            style="@style/btn_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/rvEmployee"
             app:layout_constraintStart_toStartOf="@+id/rvEmployee" />

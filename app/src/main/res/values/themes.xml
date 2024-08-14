@@ -9,10 +9,14 @@
         <item name="backgroundTint">@color/mainly_green</item>
         <item name="iconTint">@color/white</item>
     </style>
-
-
-
-
+    <style name="Theme.EasyMeals" parent="Base.Theme.MedicalApp" />
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_dialog_shape</item>
+    </style>
 
     <style name="Theme.MedicalApp" parent="Base.Theme.MedicalApp" />
 </resources>
