@@ -19,17 +19,11 @@ abstract class BaseFragment <VB : ViewBinding>(private val bindingInflater : (in
         _binding = bindingInflater.invoke(inflater)
         return binding.root
     }
-//    abstract fun observe()
 
     abstract fun onClicks()
 
-//    abstract fun showLoading()
-//
-//    abstract fun finishLoading()
-
-
-
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        super.onDestroyView()
         super.onDestroy()
         _binding = null
     }
